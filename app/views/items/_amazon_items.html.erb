@@ -5,10 +5,10 @@
         <div class="image">
           <div class="img-wrap">
             <% #TODO 商品画像 %>
-            <% if @amazon_items.present? %>
-              <%= image_tag item.get('LargeImage/URL') %>
-            <% else %>
+            <% if item.get('LargeImage/URL').blank? %>
               <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% else %>
+              <%= image_tag item.get('LargeImage/URL'), alt: item.get('ItemAttributes/Title') %>
             <% end %>
           </div>
         </div>
